@@ -2,11 +2,11 @@
   "name": "d",
   "version": "1.0.0",
   "description": "",
-  "main": "",
+  "main": "app.js",
   "type": "module",
   "scripts": {
-    "start:prod": "node src/index.js",
-    "start-dev": "nodemon src/index.js"
+    "start": "node src/app.js",
+    "start-dev": "nodemon src/app.js"
   },
   "repository": {
     "type": "git",

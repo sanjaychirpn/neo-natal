@@ -16,7 +16,7 @@ export class UserController {
 
   listUsers = async (req, res) => {
     try {
-      return await this.userService.listUsers(req, res);
+      return await this.userService.listUsers(req, res); 
     } catch (error) {
       console.log({ error });
       return responseStatus(res, 500, msg.common.somethingWentWrong, error);

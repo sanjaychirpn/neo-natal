@@ -44,12 +44,14 @@ export class UserService {
       this.userRepository
         .findByEmail(credentials.email)
         .then(async (data) => {
+          if (!data) {
+            return responseStatus(res, 404, msg.user.emailNotFound, null);
+          }
           const validPassword = await bcrypt.compare(
             credentials.password,
             data.password
           );
           if (validPassword) {
-            data.password = undefined;
             const token = jwt.sign({ _id: data._id }, JWT_SECRET);
 
             const options = {
