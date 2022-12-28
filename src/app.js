@@ -11,6 +11,8 @@ import {
   patientCaseRouter,
   patientRouter,
   userRouter,
+  userRoleRouter,
+  userRoleOnCaseRouter,
 } from './routes/index.js';
 cloudinaryConfig();
 const port = process.env.PORT || 3000;
@@ -39,6 +41,8 @@ const port = process.env.PORT || 3000;
   app.use('/api/user', userRouter);
   app.use('/api/patient', patientRouter);
   app.use('/api/patient-case', patientCaseRouter);
+  app.use('/api/user-role', userRoleRouter);
+  app.use('/api/user-role-oncase', userRoleOnCaseRouter);
   app.use('/', otherRouter);
 
   app.listen(port);

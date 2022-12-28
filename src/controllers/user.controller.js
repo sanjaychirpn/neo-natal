@@ -1,8 +1,8 @@
 import { responseStatus } from '../helper/response.js';
 import { msg } from '../helper/message.js';
-import { UserService } from '../services/user.service.js';
+import { UserService } from '../services/index.js';
 
-export class UserController { 
+export class UserController {
   userService = new UserService();
 
   save = async (req, res) => {
@@ -16,7 +16,7 @@ export class UserController {
 
   listUsers = async (req, res) => {
     try {
-      return await this.userService.listUsers(req, res); 
+      return await this.userService.listUsers(req, res);
     } catch (error) {
       console.log({ error });
       return responseStatus(res, 500, msg.common.somethingWentWrong, error);

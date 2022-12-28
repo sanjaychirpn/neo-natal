@@ -24,7 +24,20 @@ export async function uploadFile(file) {
     } catch (error) {
       console.log('Error Uploading audio to Cloudinary: ' + error);
     }
-  } else {
+  } 
+  else if (file?.mimetype?.includes('video')) {
+    console.log('video file');
+    try {
+      const fName = file.name;
+      let result = await cloudinary.v2.uploader.upload(file.tempFilePath, {
+        resource_type: 'video',
+        public_id: `VideoUploads/${fName}`,
+      });
+      return result.secure_url;
+    } catch (error) {
+      console.log('Error Uploading video to Cloudinary: ' + error);
+    }
+  }else {
     console.log(
       `Unspecified file format: ${file.name} with type: ${file.mimeType}`
     );

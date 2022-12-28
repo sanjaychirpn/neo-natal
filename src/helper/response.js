@@ -12,7 +12,7 @@ export const responseStatus = (
       message,
       data,
     });
-  } else if (status === 400) {
+  } else if (status === 400) { 
     res.status(status).json({
       statusMessage: 'Error',
       success: false,

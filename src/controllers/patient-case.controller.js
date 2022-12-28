@@ -1,6 +1,6 @@
 import { responseStatus } from '../helper/response.js';
 import { msg } from '../helper/message.js';
-import { PatientCaseService } from '../services/patient-case.service.js';
+import { PatientCaseService } from '../services/index.js';
 
 export class PatientCaseController {
   patientCaseService = new PatientCaseService();

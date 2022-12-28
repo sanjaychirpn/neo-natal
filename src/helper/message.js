@@ -1,4 +1,4 @@
-const msg = {
+export const msg = {
   common: {
     createdSuccess: 'Created successfully.',
     updatedSuccess: 'Updated successfully.',
@@ -132,6 +132,10 @@ const msg = {
     deletedSuccess: 'Image removed successfully',
     uploadError: 'Failed to upload image',
   },
+  userrole: {
+    userroleSavedSuccess: ' userRole save successfully.',
+    userroleSavedError:'userRole save successfully',
+    userRoleExist: 'userRole exist.',
+    userRoleError: 'Error registering userRole!',
+  },
 };
-
-export { msg };
