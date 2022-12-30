@@ -10,10 +10,23 @@ export class UserRoleOnCaseService {
     try {
       let body = req.body;
       let checkForUserRoleExistence;
-      checkForUserRoleExistence = await this.userRoleOnCaseRepository.findByUserId(
-        body.userId
+      let pacientCaseId;
+      let userRoleId;
+      checkForUserRoleExistence =
+        await this.userRoleOnCaseRepository.findByUserId(body.userId);
+
+      pacientCaseId = await this.userRoleOnCaseRepository.findBypacientCaseId(
+        body.patientCaseId
       );
-      if (checkForUserRoleExistence !== null || undefined) {
+
+      userRoleId = await this.userRoleOnCaseRepository.findByuserRoleId(
+        body.userRoleId
+      );
+      if (
+        (checkForUserRoleExistence !== null || undefined) ||
+        (pacientCaseId !== null || undefined) ||
+        (userRoleId !== null || undefined)
+      ) {
         return responseStatus(res, 400, `already exist`, null);
       }
       this.userRoleOnCaseRepository
@@ -102,6 +115,7 @@ export class UserRoleOnCaseService {
       );
       return responseStatus(res, 200, msg.common.recordFound, result);
     } catch (error) {
+      console.log(error);
       return responseStatus(res, 500, msg.common.somethingWentWrong, error);
     }
   };

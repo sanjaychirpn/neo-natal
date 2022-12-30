@@ -134,7 +134,7 @@ export const msg = {
   },
   userrole: {
     userroleSavedSuccess: ' userRole save successfully.',
-    userroleSavedError:'userRole save successfully',
+    userroleSavedError: 'userRole save successfully',
     userRoleExist: 'userRole exist.',
     userRoleError: 'Error registering userRole!',
   },

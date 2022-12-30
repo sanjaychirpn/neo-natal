@@ -9,12 +9,12 @@ const UserRoleOnCaseSchema = new Schema(
     patientCaseId: {
       type: Types.ObjectId,
       required: [true, 'Enter patientCaseId'],
-      ref: 'PatientCaseId',
+      ref: 'PatientCase',
     },
     userRoleId: {
       type: Types.ObjectId,
       required: [true, 'Enter userRoleId'],
-      ref: 'UserRoleId',
+      ref: 'UserRole',
     },
   },
   {

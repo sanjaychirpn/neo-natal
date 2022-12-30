@@ -33,6 +33,32 @@ export class UserRoleOnCaseRepository {
     });
   };
 
+  findBypacientCaseId = async (patientCaseId) => {
+    return new Promise(async (resolve, reject) => {
+      try {
+        UserRoleOnCaseModel.findOne({ patientCaseId })
+          .then((data) => resolve(data))
+          .catch((err) => reject(err));
+      } catch (error) {
+        reject(error);
+        throw new Error(error);
+      }
+    });
+  };
+
+  findByuserRoleId = async (userRoleId) => {
+    return new Promise(async (resolve, reject) => {
+      try {
+        UserRoleOnCaseModel.findOne({ userRoleId })
+          .then((data) => resolve(data))
+          .catch((err) => reject(err));
+      } catch (error) {
+        reject(error);
+        throw new Error(error);
+      }
+    });
+  };
+
   findById = async (id) => {
     return new Promise(async (resolve, reject) => {
       try {
@@ -50,6 +76,9 @@ export class UserRoleOnCaseRepository {
     return new Promise(async (resolve, reject) => {
       try {
         UserRoleOnCaseModel.find(filter)
+          .populate('userId')
+          .populate('patientCaseId')
+          .populate('userRoleId')
           .sort(sort)
           .limit(limit)
           .skip(skip)
@@ -60,6 +89,7 @@ export class UserRoleOnCaseRepository {
             reject(err);
           });
       } catch (error) {
+        console.log(error);
         reject(error);
         throw new Error(error);
       }
